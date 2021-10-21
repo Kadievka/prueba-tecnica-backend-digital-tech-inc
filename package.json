@@ -1,0 +1,37 @@
+{
+  "name": "prueba-tecnica-backend-digital-tech-inc",
+  "version": "1.0.0",
+  "description": "administracion de usuarios, y sucursales",
+  "main": "dist/app.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:dev": "nodemon dist/app.js",
+    "start": "concurrently npm:start:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kadievka/prueba-tecnica-backend-digital-tech-inc.git"
+  },
+  "keywords": [
+    "prueba",
+    "tecnica",
+    "backend"
+  ],
+  "author": "kadievka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kadievka/prueba-tecnica-backend-digital-tech-inc/issues"
+  },
+  "homepage": "https://github.com/Kadievka/prueba-tecnica-backend-digital-tech-inc#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.3",
+    "@types/express": "^4.17.13",
+    "tslint": "^6.1.3",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "concurrently": "^6.3.0",
+    "express": "^4.17.1"
+  }
+}

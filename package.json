@@ -4,9 +4,9 @@
   "description": "administracion de usuarios, y sucursales",
   "main": "dist/app.js",
   "scripts": {
+    "start": "concurrently npm:start:*",
     "start:build": "tsc -w",
     "start:dev": "nodemon dist/app.js",
-    "start": "concurrently npm:start:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "concurrently": "^6.3.0",
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.1.0"
   }
 }

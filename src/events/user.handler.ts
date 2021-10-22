@@ -9,6 +9,7 @@ export default class UserHandler {
   static create(user){
     console.log('I hear a create user');
     const handler = middy((ev, context) => {
+      //TODO implement nodemailer to send email
       console.log('ev', ev);
       console.log(`send confirmation email to ${ev.body.email}`);
       console.log(`confirmation jwt: ${ev.jwt}`);

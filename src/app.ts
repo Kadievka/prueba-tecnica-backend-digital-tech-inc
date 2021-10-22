@@ -2,12 +2,19 @@ require('dotenv').config();
 import express from 'express';
 import http from 'http';
 import routes from './routes/index.routes';
+import db from './config/database';
+import errorHandlingJWT from './middlewares/errorHandlingJWT';
+
+db.connect()
+  .then(() => console.log('Connected to MongoDB...'))
+  .catch((err) => console.error('Could not connect to MongoDB...', err));
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(routes);
+app.use(errorHandlingJWT);
 
 const server = http.createServer(app);
 

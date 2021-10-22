@@ -43,14 +43,22 @@ export default class UserService {
     return deletedUsers;
   }
 
-  static async getAllUsers(userEmail: string, filter: {filterColumn: string, sort: string, limit: string, skip: string}) {
+  static async getAllUsers(userEmail: string, filter: {
+      filterColumn: string,
+      sort: string,
+      limit: string,
+      skip: string
+    }) {
     const userRole = await this.getUserRole(userEmail);
     const findOptions = {};
     if(userRole !== ADMIN_ROLE){
       findOptions['email'] = userEmail;
     }
     const column = filter.filterColumn;
-    const sort = filter.sort.toLowerCase() === 'asc' ? 1 : -1;
+    let sort = 1;
+    if(filter.sort) {
+      sort = filter.sort.toLowerCase() === 'asc' ? 1 : -1
+    }
     const sortOptions = {};
     sortOptions[column] = sort;
     const limit = filter.limit ? parseInt(filter.limit) : 10;
@@ -70,7 +78,7 @@ export default class UserService {
       const valid = await user.verifyPassword(password);
       if(valid && user.active === true){
         return {
-          token: jwt.sign({ email: user.email }, process.env.JWT_SECRET)
+          token: jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET)
         };
       }
     }

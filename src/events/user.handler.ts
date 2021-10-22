@@ -19,7 +19,7 @@ export default class UserHandler {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(user),
-      jwt: jwt.sign({ email: user.email }, process.env.JWT_SECRET)
+      jwt: jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET)
     }
     handler(event, undefined, ()=>{
       return 0;

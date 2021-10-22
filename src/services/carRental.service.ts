@@ -14,6 +14,8 @@ export default class CarRentalService {
       rentFrom: { $lte: carRental.rentFrom },
       rentTo: { $gte: carRental.rentFrom }
     });
+    userService.validateDateFormat(carRental.rentFrom);
+    userService.validateDateFormat(carRental.rentTo);
     if(carRentalDb || carRental.rentFrom > carRental.rentTo){
       throwError('Invalid date for the rent');
     }

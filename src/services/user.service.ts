@@ -23,7 +23,7 @@ export default class UserService {
 
   static async createUser(user: CreateUserDto): Promise<typeof User> {
     this.validateNumberPhone(user.phone);
-    this.validateBirthdate(user.birthdate);
+    this.validateDateFormat(user.birthdate);
     user.role = this.validateRole(user.role);
     userEmitter.emit(userEventConstants.CREATE, user);
     const filter = { email: user.email };
@@ -87,18 +87,18 @@ export default class UserService {
 
   static async updateUser(email: string, user: UpdateUserDto){
     this.validateNumberPhone(user.phone);
-    this.validateBirthdate(user.birthdate);
+    this.validateDateFormat(user.birthdate);
     const filter = { email };
     const update = { ...user };
     const options = { new: true };
     return User.findOneAndUpdate(filter, update, options);
   }
 
-  static validateBirthdate(birthdate: string) {
+  static validateDateFormat(date: string) {
     const schema = Joi.string()
       .regex(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/)
-      .message('birthdate format must to be YYY/MM/DD');
-    validateSchema(schema, birthdate);
+      .message('birthdate format must to be YYY-MM-DD');
+    validateSchema(schema, date);
   }
 
   static validateNumberPhone(phone: string) {

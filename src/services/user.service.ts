@@ -97,7 +97,7 @@ export default class UserService {
   static validateDateFormat(date: string) {
     const schema = Joi.string()
       .regex(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/)
-      .message('birthdate format must to be YYY-MM-DD');
+      .message('date format must to be YYY-MM-DD');
     validateSchema(schema, date);
   }
 

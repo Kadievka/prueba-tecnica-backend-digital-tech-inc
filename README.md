@@ -14,7 +14,9 @@ In this project you will found:
   - **Route:** POST http://localhost:4000/users/login **Description:** After activating profile, the user can login and get another JWT to use the car rental service.
   - **Route:** PUT http://localhost:4000/users/edit **Description:** User can edit its own profile.
   - **Route:** DELETE http://localhost:4000/users/delete-many **Description:** Only admin users can delete other users.
-
+- File Handler Service:
+  - **Route:** POST http://localhost:4000/users/json-to-pdf **Description:** Is only for other practice other purposes.
+ 
 **Every route, except login, uses JWT Bearer authentication.**
 
 ------------

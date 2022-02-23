@@ -25,7 +25,7 @@ Download the project, and run `npm install`.
 
 ## Configure .env variables
 
-In the **.env.example** file you can see which variables are needed to run the project. The
+In the **.env.example** file you can see which variables are needed to run the project.
 
 ## Run the serve
 

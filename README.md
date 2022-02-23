@@ -29,5 +29,5 @@ In the **.env.example** file you can see which variables are needed to run the p
 
 ## Run the serve
 
-Run `npm start`, it will compile a star the server has development mode.
+Run `npm start`, it will compile and start the server has development mode.
 
